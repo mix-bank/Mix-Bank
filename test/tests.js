@@ -9,6 +9,7 @@ test('api conection', (t) => {
     .expect(200)
     .end(function(err, res) {
       t.error(err, "this is an error :(  :")
+      t.end()
     })
 })
 
@@ -19,7 +20,8 @@ test('typeof id', (t) => {
     .expect(200)
     .end(function(err, res) {
       t.error(err, "this is an error :(  :")
-      t.equal(res.data.account, )
+      t.equal(res.data.account)
+      t.end()
     })
 })
 
