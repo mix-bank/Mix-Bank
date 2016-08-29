@@ -10,22 +10,22 @@ const accountsData = (id) => {
   return {
     account: {
       id: id,
-      transactions: []
+      transactions: [ { yes: "no?"}]
     }
   }
 }
 
 
-// app.get('/api/v1/accounts/:id', (req, res) => {
-//   var id = Number(req.params.id)
-//   var data = accountsData(id)
-//   console.log(data);
-//   res.json(data)
-// })
+router.get('/api/v1/accounts/:id', (req, res) => {
+  var id = Number(req.params.id)
+  var data = accountsData(id).account
+  console.log("winning!");
+  res.json(data)
+})
 
 router.get('/api/v1/accounts/:id/transactions', (req, res) => {
   var id = Number(req.params.id)
-  var data = accountsData(id)
+  var data = accountsData(id).account.transactions
   res.json(data)
 })
 
