@@ -3,15 +3,30 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/JamesAnBo/Mix-Bank.git"
   },
+  "scripts": {
+    "production": "webpack -p",
+    "start": "webpack-dev-server"
+  },
   "author": "",
   "license": "MIT",
+  "devDependencies": {
+    "babel-core": "^6.13.2",
+    "babel-loader": "^6.2.5",
+    "babel-preset-react": "^6.11.1",
+    "html-webpack-plugin": "^2.22.0",
+    "webpack": "^1.13.2",
+    "webpack-dev-server": "^1.15.0"
+  },
+  "dependencies": {
+    "raven-js": "^3.5.1",
+    "react": "^15.3.1",
+    "react-dom": "^15.3.1",
+    "react-router": "^2.7.0"
+  },
   "bugs": {
     "url": "https://github.com/JamesAnBo/Mix-Bank/issues"
   },
