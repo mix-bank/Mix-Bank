@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import actionCreators from '../action_creators/action'
+//import actionCreators from '../action_creators/action'
 
 
 class App extends React.Component {
