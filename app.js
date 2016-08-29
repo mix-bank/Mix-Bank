@@ -1,4 +1,5 @@
-var app = require('express')
+var express = require('express');
+var app = express();
 
 app.get('/api/v1/accounts/:id/transactions', (req, res) => {
   var data = {
@@ -7,6 +8,7 @@ app.get('/api/v1/accounts/:id/transactions', (req, res) => {
       transactions: []
     }
   }
-  return(data)
-}
-)
+  res.send(data)
+})
+
+app.listen(3000);
