@@ -3,18 +3,21 @@ import ReactDOM from 'react-dom'
 import App from './components/app'
 import domready from 'domready'
 import { Provider } from 'react-redux'
-import { createStore } from 'redux'
-import reducers from './reducers/reducers'
+// import { createStore } from 'redux'
 
-const store = createStore(reducers)
+// const store = createStore()
 
 
 
 domready(() => {
   ReactDOM.render(
-    <Provider store={store}>
+    <div>
+    <h1>here it iss</h1>
+    <Provider>
       <App/>
-     </Provider>,
+
+     </Provider>
+     </div>,
     document.querySelector('#app')
   )
 })

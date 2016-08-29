@@ -10,7 +10,8 @@
   "scripts": {
     "production": "webpack -p",
     "start": "webpack-dev-server",
-    "dev": "node ./bin/www"
+    "dev": "node ./bin/www",
+    "dev:watch": "watchify Client/index.js -o public/bundle.js -t babelify -dv"
   },
   "author": "",
   "license": "MIT",
@@ -33,6 +34,7 @@
     "webpack-dev-server": "^1.15.0"
   },
   "dependencies": {
+    "babelify": "^7.3.0",
     "babel-core": "^6.7.2",
     "babel-plugin-lodash": "^2.2.1",
     "babel-plugin-transform-class-properties": "^6.6.0",
