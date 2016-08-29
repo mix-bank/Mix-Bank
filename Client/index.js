@@ -12,7 +12,7 @@ import { Provider } from 'react-redux'
 domready(() => {
   ReactDOM.render(
     <div>
-    <h1>YAY</h1>
+    <h1>Here</h1>
     <Provider>
       <App/>
 
