@@ -9,8 +9,7 @@
   },
   "scripts": {
     "production": "webpack -p",
-    "start": "webpack-dev-server",
-    "dev": "node ./bin/www",
+    "start": "node ./bin/www",
     "dev:watch": "watchify Client/index.js -o public/bundle.js -t babelify -dv"
   },
   "author": "",
