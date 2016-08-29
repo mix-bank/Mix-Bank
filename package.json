@@ -1,0 +1,19 @@
+{
+  "name": "mix_bank",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JamesAnBo/Mix-Bank.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/JamesAnBo/Mix-Bank/issues"
+  },
+  "homepage": "https://github.com/JamesAnBo/Mix-Bank#readme"
+}
