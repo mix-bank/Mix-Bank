@@ -1,25 +1,25 @@
 var express = require('express');
 var app = express();
 
-app.get('/api/v1/accounts/:id', (req, res) => {
-  var data = {
+const accountsData = (id) => {
     account: {
-      id: Number(req.params.id)
+      id: id,
+      transactions: []
     }
-  }
-  console.log(data.account);
-  res.send(data.account)
+}
+
+
+app.get('/api/v1/accounts/:id', (req, res) => {
+  var id = Number(req.params.id)
+  var data = accountsData(id)
+  console.log(data);
+  res.json(data)
 })
 
 app.get('/api/v1/accounts/:id/transactions', (req, res) => {
-  var data = {
-    account: {
-      id: Number(req.params.id),
-      transactions: []
-    }
-  }
-  console.log(data.account.transactions);
-  res.send(data.account.transactions)
+  var id = Number(req.params.id)
+  var data = accountsData(id)
+  res.json(data)
 })
 
-app.listen(3000);
+module.exports = app
