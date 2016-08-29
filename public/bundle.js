@@ -1,0 +1,1 @@
+console.error("\n/Users/apprentice/mix-bank/Mix-Bank/client/index.js:1\nimport React from 'react';\n^\nParseError: 'import' and 'export' may appear only with 'sourceType: module'");
