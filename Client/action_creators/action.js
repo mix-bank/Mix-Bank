@@ -4,3 +4,5 @@ const retrieveData = function () {
     payload: {
     }
   }
+}
+  module.exports={retrieveData}
