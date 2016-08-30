@@ -19,7 +19,7 @@ function fetchAccountTransaction () {
           console.error(err.message)
           return
         }
-        dispatch(retrieveData(res.body.data.account.transactions))
+        dispatch(receiveAccountTransaction(res.body.data.account.transactions))
       })
   }
 }
