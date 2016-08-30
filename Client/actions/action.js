@@ -1,33 +1,16 @@
 import request from 'superagent'
+import initialState from '../initialstate.js'
 
-const receiveAccountTransaction = function () {
+let data = initialState
+
+const receiveAccountTransaction = function (data) {
   return {
     type: 'GET_ACCOUNT_TRANSACTIONS',
-    payload: {
-      account: {
-        id: 1,
-        transactions:[
-          {
-            id:503,
-            amount: 456,
-            description: 'purchase bk',
-            from_account_id: 1,
-            to_account_id: 2
-          },
-          {
-            id:504,
-            amount: 56700,
-            description: 'weekly pay from bk',
-            from_account_id: 2,
-            to_account_id: 1
-          }
-        ]
-      }
-    }
+    payload: data
   }
 }
 
-export function fetchAccountTransaction () {
+function fetchAccountTransaction () {
   return (dispatch) => {
     request
       .get('/api/v1/accounts/:id/transactions')
@@ -41,4 +24,7 @@ export function fetchAccountTransaction () {
   }
 }
 
-  module.exports={retrieveData}
+  module.exports={
+    receiveAccountTransaction,
+    fetchAccountTransaction
+  }

@@ -8,8 +8,7 @@ import thunkMiddleware from 'redux-thunk'
 import reducers from './reducers/reducer.js'
 
 let store = createStore(reducers, compose(
-    applyMiddleware(thunkMiddleware),
-    window.devToolsExtension ? window.devToolsExtension() : f => f
+    applyMiddleware(thunkMiddleware)
 ))
 
 
