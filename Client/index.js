@@ -18,12 +18,11 @@ let store = createStore(reducers, compose(
 domready(() => {
   ReactDOM.render(
     <div>
-    <h1>Here</h1>
-    <Provider store={store}>
-      <App/>
-
-     </Provider>
-     </div>,
+      <h1>Here</h1>
+      <Provider store={store}>
+        <App/>
+      </Provider>
+    </div>,
     document.querySelector('#app')
   )
 })
