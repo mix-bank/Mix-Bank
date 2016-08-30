@@ -9,10 +9,10 @@
   },
   "scripts": {
     "start": "node ./bin/www",
-    "test": "node ./test/tests.js | tap-spec",
-    "production": "webpack -p",
-    "bundle": "browserify Client/index.js -o public/bundle.js -t babelify -dv",
-    "dev:watch": "watchify Client/index.js -o public/bundle.js -t babelify -dv"
+    "postinstall": "npm run bundle",
+    "test": "node ./test/*.js | tap-spec",
+    "bundle": "NODE_ENV=production browserify Client/index.js -o public/bundle.js -t babelify",
+    "dev:watch": "watchify Client/index.js -o public/bundle.js -t babelify -d"
   },
   "author": "",
   "license": "MIT",
@@ -37,7 +37,6 @@
     "wtch": "^4.0.1"
   },
   "dependencies": {
-    "babelify": "^7.2.0",
     "babel-core": "^6.7.2",
     "babel-plugin-lodash": "^2.2.1",
     "babel-plugin-transform-class-properties": "^6.6.0",
@@ -47,7 +46,9 @@
     "babel-preset-react": "^6.5.0",
     "babel-register": "^6.7.2",
     "babel-runtime": "^6.6.1",
+    "babelify": "^7.2.0",
     "body-parser": "~1.15.1",
+    "compression": "^1.6.2",
     "cookie-parser": "~1.4.3",
     "debug": "~2.2.0",
     "domready": "^1.0.8",
