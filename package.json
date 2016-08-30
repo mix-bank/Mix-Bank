@@ -8,10 +8,10 @@
     "url": "git+https://github.com/JamesAnBo/Mix-Bank.git"
   },
   "scripts": {
-    "start": "node ./bin/www",
-    "production": "webpack -p",
-    "dev:watch": "watchify Client/index.js -o public/bundle.js -t babelify -dv",
+    "start": "npm run bundle && node ./bin/www",
     "test": "node ./test/tests.js | tap-spec",
+    "production": "webpack -p",
+    "bundle": "browserify Client/index.js -o public/bundle.js -t babelify -dv",
     "dev:watch": "watchify Client/index.js -o public/bundle.js -t babelify -dv"
   },
   "author": "",
