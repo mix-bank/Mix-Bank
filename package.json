@@ -11,16 +11,12 @@
     "start": "node ./bin/www",
     "postinstall": "npm run bundle",
     "test": "node ./test/*.js | tap-spec",
-    "bundle": "NODE_ENV=production browserify Client/index.js -o public/bundle.js -t babelify",
+    "bundle": "NODE_ENV=production browserify Client/index.js -o public/bundle.js -t babelify -g uglifyify",
     "dev:watch": "watchify Client/index.js -o public/bundle.js -t babelify -d"
   },
   "author": "",
   "license": "MIT",
   "devDependencies": {
-    "babel-core": "^6.13.2",
-    "babel-loader": "^6.2.5",
-    "babel-plugin-react-transform": "^2.0.2",
-    "babel-preset-react": "^6.11.1",
     "enzyme": "^2.1.0",
     "garnish": "^5.0.2",
     "html-webpack-plugin": "^2.22.0",
@@ -38,7 +34,9 @@
   },
   "dependencies": {
     "babel-core": "^6.7.2",
+    "babel-loader": "^6.2.5",
     "babel-plugin-lodash": "^2.2.1",
+    "babel-plugin-react-transform": "^2.0.2",
     "babel-plugin-transform-class-properties": "^6.6.0",
     "babel-plugin-transform-object-rest-spread": "^6.6.5",
     "babel-plugin-transform-runtime": "^6.6.0",
@@ -68,7 +66,7 @@
     "redux": "^3.5.2",
     "serve-favicon": "~2.3.0",
     "sqlite3": "^3.1.4",
-    "tape": "^4.6.0"
+    "uglifyify": "^3.0.2"
   },
   "bugs": {
     "url": "https://github.com/JamesAnBo/Mix-Bank/issues"
