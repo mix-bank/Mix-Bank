@@ -52,6 +52,8 @@
     "debug": "~2.2.0",
     "domready": "^1.0.8",
     "express": "~4.13.4",
+    "express-hbs": "^1.0.2",
+    "express-session": "^1.14.1",
     "hbs": "~4.0.0",
     "knex": "^0.11.10",
     "lodash.map": "^4.6.0",
