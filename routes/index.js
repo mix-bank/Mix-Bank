@@ -16,12 +16,12 @@ const accountsData = (id) => {
 }
 
 
-// app.get('/api/v1/accounts/:id', (req, res) => {
-//   var id = Number(req.params.id)
-//   var data = accountsData(id)
-//   console.log(data);
-//   res.json(data)
-// })
+router.get('/api/v1/accounts/:id', (req, res) => {
+  var id = Number(req.params.id)
+  var data = accountsData(id)
+  console.log(data);
+  res.json(data)
+})
 
 router.get('/api/v1/accounts/:id/transactions', (req, res) => {
   var id = Number(req.params.id)
