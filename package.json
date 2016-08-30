@@ -11,8 +11,8 @@
     "start": "node ./bin/www",
     "test": "node ./test/tests.js | tap-spec",
     "production": "webpack -p",
-    "bundle": "browserify Client/index.js -o public/bundle.js -t babelify -dv",
-    "dev:watch": "watchify Client/index.js -o public/bundle.js -t babelify -dv"
+    "bundle": "browserify Client/index.js -o public/bundle.js -t babelify -d",
+    "dev:watch": "watchify Client/index.js -o public/bundle.js -t babelify -d"
   },
   "author": "",
   "license": "MIT",
