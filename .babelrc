@@ -6,7 +6,6 @@
   "plugins": [
     "transform-runtime",
     "transform-object-rest-spread",
-    "transform-class-properties",
-    "lodash"
+    "transform-class-properties"
   ]
 }
