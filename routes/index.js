@@ -1,3 +1,5 @@
+
+
 var express = require('express');
 var router = express.Router();
 var {getTransactions}  = require('../config/database/db');
@@ -19,20 +21,20 @@ const accountsData = (id) => {
 
 
 router.get('/api/v1/accounts/:id', (req, res) => {
-  getTransactions()
-    .then(function(data){
+  getTransactions(req.params.id)
+    .then( data => {
       console.log(data);
+      res.json(data)
     })
-    .catch(logError)
+    .catch( err => res.status(500).send(err) )
 })
-
 router.get('/api/v1/accounts/:id/transactions', (req, res) => {
   var id = Number(req.params.id)
   var data = accountsData(id)
   res.json(data)
 })
 
-function logError (err) {
-  res.status(500).send('cant display data')
-}
+// const logError = (err) => {
+//   res.status(500).send('cant display data')
+// }
 module.exports = router;
