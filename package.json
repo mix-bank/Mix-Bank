@@ -9,7 +9,8 @@
   },
   "scripts": {
     "production": "webpack -p",
-    "start": "node ./bin/www",
+    "bundle": "browserify Client/index.js -o public/bundle.js -t babelify -dv",
+    "start": "npm run bundle && node ./bin/www",
     "dev:watch": "watchify Client/index.js -o public/bundle.js -t babelify -dv"
   },
   "author": "",
