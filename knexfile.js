@@ -5,7 +5,13 @@ module.exports = {
   development: {
     client: 'sqlite3',
     connection: {
-      filename: './dev.sqlite3'
+      filename: './config/database/dev.sqlite3'
+    },
+    migrations: {
+      directory: './config/database/migrations'
+    },
+    seeds: {
+      directory: './config/database/seeds'
     }
   },
 
