@@ -26,7 +26,7 @@ server.use(express.static(path.join(__dirname, 'public')));
 server.use(compression())
 
 server.use('/', routes);
-server.use('/users', users);
+// server.use('/users', users);
 
 // catch 404 and forward to error handler
 server.use((req, res, next) => {
