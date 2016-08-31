@@ -27,6 +27,15 @@ function fetchAccountTransaction () {
  }
 }
 
+const makeNewTransaction = function () {
+  return {
+    type: 'MAKE_NEW_TRANSACTION',
+    payload: {
+      id: id
+    }
+  }
+}
+
  module.exports={
    receiveAccountTransaction,
    fetchAccountTransaction

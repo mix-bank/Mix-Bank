@@ -4,6 +4,10 @@ function accountData (state = [], action) {
 
       return [...action.payload]
 
+    case 'MAKE_NEW_TRANSACTION':
+
+      let newState = Object.assign({}, action.payload)
+
     default:
       return state
   }
