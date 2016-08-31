@@ -1,17 +1,17 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import App from './components/app'
+import App from './Components/App'
 import domready from 'domready'
 import { Provider } from 'react-redux'
 import { createStore, applyMiddleware, compose } from 'redux'
-import thunkMiddleware from 'redux-thunk'
+import thunk from 'redux-thunk'
 import reducers from './reducers/reducer.js'
 
 let store = createStore(reducers, compose(
-    applyMiddleware(thunkMiddleware)
+    applyMiddleware(thunk)
 ))
 
-
+// console.log(store.getState());
 
 
 domready(() => {
