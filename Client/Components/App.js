@@ -10,30 +10,33 @@ import { receiveAccountTransaction, fetchAccountTransaction } from '../actions/a
 // }
 
 const mapDispatchToProps = (dispatch) => {
- console.log(dispatch);
+  console.log('inside mapDispatchToProps', dispatch);
   return {
-    transactionsAction: bindActionCreators(fetchAccountTransaction, dispatch)
+    fetchAccountTransaction: () => {
+      dispatch(fetchAccountTransaction())
+    }
   }
 }
 
 class App extends React.Component {
 
-  componentWillMount(){
-      this.props.fetchAccountTransaction
+  componentDidMount(){
+      this.props.fetchAccountTransaction()
+      // console.log('inisde the componentWillMount ', this.props);
   }
 
   render() {
-    console.log('props', this.props)
+    console.log('inisde the render', this.props.accountData);
     return (
       <div>
-        <h1>Hello there</h1>
+        <h1></h1>
       </div>
     )
   }
 }
 
 export default connect(
-  null, mapDispatchToProps
+  (state) => state, mapDispatchToProps
 )(App)
 
 // module.exports = App

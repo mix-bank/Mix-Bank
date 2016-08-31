@@ -15,7 +15,7 @@ router.post('/sign-in', (req, res) => {
       console.log("this is also log in data: ", ...logInData)
       console.log("this is the log in password: ", req.body.password)
       if (password === req.body.password) {
-        res.redirect('/')
+        res.redirect('/api/v1/accounts/')
       } else {
         res.send('You are a terrible hacker >:(')
       }
