@@ -54,7 +54,8 @@ class App extends React.Component {
 }
 
 export default connect(
-  mapStateToProps, mapDispatchToProps
+  mapStateToProps,
+  mapDispatchToProps
 )(App)
 
 // module.exports = App
