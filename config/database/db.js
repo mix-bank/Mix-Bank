@@ -1,31 +1,28 @@
 var config      = require('../../knexfile').development;
-// var env         = 'development';
 var knex        = require('knex')(config);
 
 
 
 const getTransactions = (id) => {
-  // NOTE THIS NEED TO CHANGE from 1 -> id
-
   return knex('transactions')
-    // .where('id', 1)
+    .where('from_account_id', id)
+    .orWhere('to_account_id', id)
     .then( data => {
       console.log('here is the data', data)
       return data
     })
-  // return knex.select('*').table('transactions')
 }
 
-// const getAccounts = function (){
-//   return knex.select('*').table('accounts')
-// }
-// getAccounts()
-//   .then(function(data){
-//     console.log(data);
-//   })
-//   .catch(function(err){
-//     console.log(err);
-//   })
+const getAccount = (id) => {
+  return knex('accounts')
+    .where('id', id)
+    .then( data => {
+      console.log('here is the data', data)
+      return data
+    })
+}
 
-
-module.exports = {getTransactions}
+module.exports = {
+  getTransactions,
+  getAccount
+}
