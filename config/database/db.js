@@ -5,7 +5,8 @@ var knex        = require('knex')(config);
 
 const getTransactions = (id) => {
   return knex('transactions')
-    .where('id', id)
+    .where('from_account_id', id)
+    .orWhere('to_account_id', id)
     .then( data => {
       console.log('here is the data', data)
       return data
@@ -21,4 +22,7 @@ const getAccount = (id) => {
     })
 }
 
-module.exports = {getTransactions, getAccount}
+module.exports = {
+  getTransactions,
+  getAccount
+}
