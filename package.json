@@ -8,7 +8,8 @@
     "url": "git+https://github.com/JamesAnBo/Mix-Bank.git"
   },
   "scripts": {
-    "start": "nodemon ./bin/www",
+    "start": "node ./bin/www",
+    "dev": "nodemon ./bin/www",
     "postinstall": "npm run bundle",
     "test": "node ./test/*.js | tap-spec",
     "bundle": "NODE_ENV=production browserify Client/index.js -o public/bundle.js -t babelify -d -g uglifyify",
