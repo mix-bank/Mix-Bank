@@ -24,7 +24,8 @@ let signIn = (account_name, email, password) => {
   return knex('accounts')
     .where('account_name', account_name)
     .then( logInData => {
-      console.log("here is the sign in info: ", logInData)
+      console.log("here is the sign in info: ", ...logInData)
+      // if (password === logInData.account_password)
       return logInData
     })
 }
