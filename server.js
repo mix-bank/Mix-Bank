@@ -1,18 +1,27 @@
-var express = require('express');
-var path = require('path');
-var favicon = require('serve-favicon');
-var logger = require('morgan');
-var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
-var compression = require('compression')
+process.env.NODE_ENV = process.env.NODE_ENV || 'development'
 
-var routes = require('./routes/index');
-var users = require('./routes/users');
+let express = require('express');
+let path = require('path');
+let favicon = require('serve-favicon');
+let logger = require('morgan');
+let cookieParser = require('cookie-parser');
+let bodyParser = require('body-parser');
+let compression = require('compression');
+// let hbs = require('express-hbs');
+let session = require('express-session');
 
-var server = express();
+
+let routes = require('./routes/index');
+let users = require('./routes/users');
+
+let server = express();
 
 
 //view engine setup
+// server.engine('hbs', hbs.express4({
+//   // partialsDir: __dirname + '/views/partials',
+//   defaultLayout: __dirname + '/views/layout'
+// }))
 server.set('views', path.join(__dirname, 'views'));
 server.set('view engine', 'hbs');
 
@@ -25,12 +34,38 @@ server.use(cookieParser());
 server.use(express.static(path.join(__dirname, 'public')));
 server.use(compression())
 
+// express-sessions setup
+server.use(session({
+  secret: 'blueberry pie',
+  resave: false,
+  saveUninitialized: true,
+  cookie: {
+    maxAge: 6000
+  }
+  // db: knex
+}))
+
+// server.use((req, res, next) => {
+//   let sess = req.session
+//   console.log(sess);
+//   if (sess.views) {
+//     sess.views++
+//     res.setHeader('Content-Type', 'text/html')
+//     res.write('<p>views: ' + sess.views + '</p>')
+//     res.write('<p>expires in: ' + (sess.cookie.maxAge / 1000) + 's</p>')
+//     res.end()
+//   } else {
+//     sess.views = 1
+//     res.end()
+//   }
+// })
+
 server.use('/', routes);
-// server.use('/users', users);
+server.use('/', users);
 
 // catch 404 and forward to error handler
 server.use((req, res, next) => {
-  var err = new Error('Not Found');
+  let err = new Error('Not Found');
   err.status = 404;
   next(err);
 });
