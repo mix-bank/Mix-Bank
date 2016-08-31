@@ -2,26 +2,6 @@ var express = require('express');
 var router = express.Router();
 var {getTransactions, getAccount, signIn}  = require('../config/database/db');
 
-// var session = require('express-session');
-// //
-// router.use(session({
-//   secret: 'blueberry pie',
-//   resave: false,
-//   saveUninitialized: true,
-//   cookie: {
-//     maxAge: 6000
-//   }
-//   // db: knex
-// }))
-// //
-// // express-sessions setup
-// router.use(session({
-//   secret: 'keyboard cat',
-//   resave: false,
-//   saveUninitialized: true
-//   // db: knex
-// }))
-
 /* GET home page. */
 router.get('/', (req, res, next) => {
   console.log("hey there");
@@ -48,8 +28,8 @@ router.get('/api/v1/accounts/:id/transactions', (req, res) => {
 })
 
 router.get('/sign-in', (req, res) => {
-  console.log(req.session);
-  res.render('sign-in')
+
+  res.render('sign-in', {account_name: "cams account"})
 })
 
 module.exports = router;

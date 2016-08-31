@@ -40,24 +40,26 @@ server.use(session({
   resave: false,
   saveUninitialized: true,
   cookie: {
-    maxAge: 600000
+    maxAge: 6000
   }
   // db: knex
 }))
 
-// server.use((req, res, next) => {
-//   let sess = req.session
-//   if (sess.views) {
-//     sess.views++
-//     res.setHeader('Content-Type', 'text/html')
-//     res.write('<p>views: ' + sess.views + '</p>')
-//     res.write('<p>expires in: ' + (sess.cookie.maxAge / 1000) + 's</p>')
-//     res.end()
-//   } else {
-//     sess.views = 1
-//     res.end('welcome to the session demo. refresh!')
-//   }
-// })
+server.use((req, res, next) => {
+  let sess = req.session
+  console.log(sess);
+  if (sess.views) {
+    sess.views++
+    res.setHeader('Content-Type', 'text/html')
+    res.write('<p>views: ' + sess.views + '</p>')
+    res.write('<p>expires in: ' + (sess.cookie.maxAge / 1000) + 's</p>')
+    res.end()
+  } else {
+    sess.views = 1
+    sess.account_name = "hello world"
+    res.render('sign-in', {account_name: "cams account"})
+  }
+})
 
 server.use('/', routes);
 // server.use('/users', users);
