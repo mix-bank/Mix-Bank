@@ -3,39 +3,59 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { receiveAccountTransaction, fetchAccountTransaction } from '../actions/action'
 
-// const mapStateToProps = (state) => {
-//   return {
-//     fetch: fetchAccountTransaction()
-//   }
-// }
+const mapStateToProps = (state) => {
+  return {
+    data: state.accountData
+  }
+}
 
 const mapDispatchToProps = (dispatch) => {
-  console.log('inside mapDispatchToProps', dispatch);
-  return {
-    fetchAccountTransaction: () => {
-      dispatch(fetchAccountTransaction())
-    }
-  }
+  return bindActionCreators({ fetchAccountTransaction }, dispatch)
 }
 
 class App extends React.Component {
 
   componentDidMount(){
-      this.props.fetchAccountTransaction()
+      const { fetchAccountTransaction } = this.props
+
+      fetchAccountTransaction();
+  }
+
+  displayData(){
+    console.log("display?");
+    const { data } = this.props;
+      return (
+        <div>
+          <ul>
+            {
+              data.map((data) => {
+                return (
+                  <div>
+                    <li>{data.id}</li>
+                    <li>{data.amount}</li>
+                    <li>{data.description}</li>
+                  </div>
+                )
+              })
+            }
+          </ul>
+        </div>
+      )
   }
 
   render() {
-    console.log('inisde the render', this.props.accountData);
     return (
       <div>
-        <h1></h1>
+        <h1>Hello there</h1>
+        {this.displayData()}
       </div>
     )
   }
 }
 
 export default connect(
-  (state) => state, mapDispatchToProps
+  mapStateToProps,
+  mapDispatchToProps
 )(App)
 
 // module.exports = App
