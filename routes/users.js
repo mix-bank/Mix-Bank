@@ -22,7 +22,7 @@ router.post('/sign-in', (req, res) => {
         console.log(req.session.accountData)
         //  = req.body.id
         // let req.params.id = req.session.cookie.id
-        res.redirect('/api/v1/accounts/:id')
+        res.redirect('/index/api/v1/accounts/:id')
       } else {
         res.send('You are a terrible hacker')
       }
