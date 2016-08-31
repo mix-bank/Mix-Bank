@@ -3,37 +3,58 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { receiveAccountTransaction, fetchAccountTransaction } from '../actions/action'
 
-// const mapStateToProps = (state) => {
-//   return {
-//     fetch: fetchAccountTransaction()
-//   }
-// }
+const mapStateToProps = (state) => {
+  return {
+    data: state.accountData
+  }
+}
 
 const mapDispatchToProps = (dispatch) => {
- console.log(dispatch);
-  return {
-    transactionsAction: bindActionCreators(fetchAccountTransaction, dispatch)
-  }
+  return bindActionCreators({ fetchAccountTransaction }, dispatch)
 }
 
 class App extends React.Component {
 
-  componentWillMount(){
-      this.props.fetchAccountTransaction
+  componentDidMount(){
+      const { fetchAccountTransaction } = this.props
+
+      fetchAccountTransaction();
+  }
+
+  displayData(){
+    console.log("display?");
+    const { data } = this.props;
+      return (
+        <div>
+          <ul>
+            {
+              data.map((data) => {
+                return (
+                  <div>
+                    <li>{data.id}</li>
+                    <li>{data.amount}</li>
+                    <li>{data.description}</li>
+                  </div>
+                )
+              })
+            }
+          </ul>
+        </div>
+      )
   }
 
   render() {
-    console.log('props', this.props)
     return (
       <div>
         <h1>Hello there</h1>
+        {this.displayData()}
       </div>
     )
   }
 }
 
 export default connect(
-  null, mapDispatchToProps
+  mapStateToProps, mapDispatchToProps
 )(App)
 
 // module.exports = App

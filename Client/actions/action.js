@@ -11,7 +11,7 @@ const receiveAccountTransaction = function (data = initialState) {
 }
 
 function fetchAccountTransaction () {
- return ({dispatch}) => {
+ return (dispatch) => {
    request
      .get('/api/v1/accounts/1/transactions')
      .end((err, res) => {
@@ -19,7 +19,8 @@ function fetchAccountTransaction () {
          console.error(err.message)
          return
        }
-       dispatch(receiveAccountTransaction(res.body))
+       console.log(res);
+       dispatch(receiveAccountTransaction(JSON.parse(res.text)))
      })
  }
 }
