@@ -1,7 +1,5 @@
-var config      = require('../../knexfile').development;
-var knex        = require('knex')(config);
-
-
+let config      = require('../../knexfile').development;
+let knex        = require('knex')(config);
 
 const getTransactions = (id) => {
   return knex('transactions')
@@ -22,7 +20,17 @@ const getAccount = (id) => {
     })
 }
 
+let signIn = (account_name, email, password) => {
+  return knex('accounts')
+    .where('account_name', account_name)
+    .then( logInData => {
+      console.log("here is the sign in info: ", logInData)
+      return logInData
+    })
+}
+
 module.exports = {
   getTransactions,
-  getAccount
+  getAccount,
+  signIn
 }

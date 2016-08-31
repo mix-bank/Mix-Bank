@@ -1,8 +1,6 @@
-
-
 var express = require('express');
 var router = express.Router();
-var {getTransactions, getAccount}  = require('../config/database/db');
+var {getTransactions, getAccount, signIn}  = require('../config/database/db');
 
 /* GET home page. */
 router.get('/', (req, res, next) => {
@@ -27,6 +25,11 @@ router.get('/api/v1/accounts/:id/transactions', (req, res) => {
       res.json(data)
     })
     .catch( err => res.status(500).send(err) )
+})
+
+router.get('/sign-in', (req, res) => {
+
+  res.render('sign-in', {account_name: "cams account"})
 })
 
 module.exports = router;
