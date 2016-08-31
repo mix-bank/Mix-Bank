@@ -9,8 +9,8 @@ request(server)
   .end(function(err, res) {
     test('typeof id', (t) => {
       t.ifError(err, "this is an error")
-      t.equal(typeof (res.body.account.id), 'number', "data.account.id should be a number")
-      t.true(Array.isArray(res.body.account.transactions), "data.account.id should be a number")
+      t.equal(typeof (res.body[0].id), 'number', "data.account.id should be a number")
+      t.true(Array.isArray(res.body), "data.account.transactions should be an array")
       t.end()
     })
   })
