@@ -11,7 +11,7 @@ let compression = require('compression');
 let session = require('express-session');
 
 
-let routes = require('./routes/index');
+let index = require('./routes/index');
 let users = require('./routes/users');
 
 let server = express();
@@ -40,7 +40,7 @@ server.use(session({
   resave: false,
   saveUninitialized: true,
   cookie: {
-    maxAge: 6000
+    maxAge: 600000
   }
   // db: knex
 }))
@@ -60,8 +60,8 @@ server.use(session({
 //   }
 // })
 
-server.use('/', routes);
-server.use('/', users);
+server.use('/index', index);
+server.use('/users', users);
 
 // catch 404 and forward to error handler
 server.use((req, res, next) => {
