@@ -1,7 +1,26 @@
-<form action="action_page.php">
-  First name:<br>
-  <input type="text" name="firstname" value="Mickey"><br>
-  Last name:<br>
-  <input type="text" name="lastname" value="Mouse"><br><br>
-  <input type="submit" value="Submit">
+<form method="POST" action="/sign-in">
+  <fieldset>
+    <legend>Please sign in</legend><br />
+
+    <div class="form-group">
+      <label for="username">User Name</label>
+      <input class="form-control" type="account_name" name="account_name" id="account_name">
+    </div><br />
+
+    <div class="form-group">
+      <label for="email">Email address</label>
+      <input class="form-control" type="email" name="email" id="email">
+    </div><br />
+
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input class="form-control" type="password" name="password" id="password">
+    </div><br />
+
+    <div class="form-group">
+      <input class="btn btn-primary" type="submit" value="Sign in">
+    </div><br />
+  </fieldset>
 </form>
+
+<h1>My id is {{account_name}}</h1>

@@ -1,3 +1,5 @@
+process.env.NODE_ENV = process.env.NODE_ENV || 'development'
+
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
@@ -5,19 +7,21 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var compression = require('compression');
-var hbs = require('express-hbs');
+// var hbs = require('express-hbs');
+var session = require('express-session');
+
 
 var routes = require('./routes/index');
-var users = require('./routes/users');
+// var users = require('./routes/users');
 
 var server = express();
 
 
 //view engine setup
-server.engine('hbs', hbs.express4({
-  partialsDir: __dirname + '/views/partials',
-  defaultLayout: __dirname + '/views/layout'
-}))
+// server.engine('hbs', hbs.express4({
+//   // partialsDir: __dirname + '/views/partials',
+//   defaultLayout: __dirname + '/views/layout'
+// }))
 server.set('views', path.join(__dirname, 'views'));
 server.set('view engine', 'hbs');
 
@@ -29,6 +33,17 @@ server.use(bodyParser.urlencoded({ extended: false }));
 server.use(cookieParser());
 server.use(express.static(path.join(__dirname, 'public')));
 server.use(compression())
+
+// express-sessions setup
+server.use(session({
+  secret: 'blueberry pie',
+  resave: false,
+  saveUninitialized: true,
+  cookie: {
+    maxAge: 6000
+  }
+  // db: knex
+}))
 
 server.use('/', routes);
 // server.use('/users', users);
