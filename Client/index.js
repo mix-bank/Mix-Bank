@@ -11,7 +11,6 @@ let store = createStore(reducers, compose(
     applyMiddleware(thunk)
 ))
 
-// console.log(store.getState());
 
 
 domready(() => {

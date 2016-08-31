@@ -1,9 +1,9 @@
 import request from 'superagent'
 import initialState from '../initialstate.js'
+import React from 'react'
 
-let data = initialState
 
-const receiveAccountTransaction = function (data) {
+const receiveAccountTransaction = function (data = initialState) {
  return {
    type: 'GET_ACCOUNT_TRANSACTIONS',
    payload: data
@@ -11,7 +11,7 @@ const receiveAccountTransaction = function (data) {
 }
 
 function fetchAccountTransaction () {
- return (dispatch) => {
+ return ({dispatch}) => {
    request
      .get('/api/v1/accounts/:id/transactions')
      .end((err, res) => {
@@ -19,7 +19,7 @@ function fetchAccountTransaction () {
          console.error(err.message)
          return
        }
-       dispatch(receiveAccountTransaction(res.body.data.account.transactions))
+       dispatch(receiveAccountTransaction(res.body))
      })
  }
 }

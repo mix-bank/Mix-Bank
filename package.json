@@ -9,6 +9,7 @@
   },
   "scripts": {
     "start": "node ./bin/www",
+    "dev": "nodemon ./bin/www",
     "postinstall": "npm run bundle",
     "test": "node ./test/*.js | tap-spec",
     "bundle": "NODE_ENV=production browserify Client/index.js -o public/bundle.js -t babelify -d -g uglifyify",
@@ -21,6 +22,7 @@
     "garnish": "^5.0.2",
     "html-webpack-plugin": "^2.22.0",
     "jsdom": "^8.1.0",
+    "nodemon": "^1.10.2",
     "react-transform-catch-errors": "^1.0.2",
     "react-transform-hmr": "^1.0.4",
     "sinon": "^1.17.3",
