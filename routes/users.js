@@ -9,24 +9,22 @@ router.get('/sign-in', (req, res) => {
 
 router.post('/sign-in', (req, res) => {
   console.log("This is the req.body: ", req.body)
-  var {account_name, email, password} = req.body
-  signIn(account_name, email, password)
+  let {account_name, account_email, account_password} = req.body
+  signIn(account_name, account_email, account_password)
     .then((logInData) => {
-      console.log("this is also log in data: ", ...logInData)
-      console.log("this is the log in password: ", req.body.password)
-      if (password === req.body.password) {
-        res.redirect('/api/v1/accounts/')
+      console.log("this is also log in data: ", logInData)
+      console.log("this is the log in password: ", account_password)
+      if (logInData[0].account_password === req.body.password) {
+        console.log("this is the session cookie: ", req.session)
+        req.session.accountData = { id: logInData[0].id }
+        console.log(req.session.accountData)
+        //  = req.body.id
+        // let req.params.id = req.session.cookie.id
+        res.redirect('/api/v1/accounts/:id')
       } else {
-        res.send('You are a terrible hacker >:(')
+        res.send('You are a terrible hacker')
       }
-    }
-      // if (password===)
-    )
+    })
 })
-
-/* GET users listing. */
-// router.get('/', (req, res, next) => {
-//   res.send('respond with a resource');
-// });
 
 module.exports = router;
