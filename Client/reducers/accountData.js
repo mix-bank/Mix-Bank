@@ -1,9 +1,8 @@
-function accountData (state = {}, action) {
+function accountData (state = [], action) {
   switch (action.type) {
     case 'GET_ACCOUNT_TRANSACTIONS':
-      return {
-        ...action.payload
-      }
+
+      return [...action.payload]
 
     default:
       return state
