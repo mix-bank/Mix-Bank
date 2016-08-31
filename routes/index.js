@@ -27,9 +27,7 @@ router.get('/api/v1/accounts/:id/transactions', (req, res) => {
     .catch( err => res.status(500).send(err) )
 })
 
-router.get('/sign-in', (req, res) => {
 
-  res.render('sign-in', {account_name: "cams account"})
-})
+
 
 module.exports = router;

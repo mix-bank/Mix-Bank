@@ -12,7 +12,7 @@ var session = require('express-session');
 
 
 var routes = require('./routes/index');
-// var users = require('./routes/users');
+var users = require('./routes/users');
 
 var server = express();
 
@@ -45,24 +45,23 @@ server.use(session({
   // db: knex
 }))
 
-server.use((req, res, next) => {
-  let sess = req.session
-  console.log(sess);
-  if (sess.views) {
-    sess.views++
-    res.setHeader('Content-Type', 'text/html')
-    res.write('<p>views: ' + sess.views + '</p>')
-    res.write('<p>expires in: ' + (sess.cookie.maxAge / 1000) + 's</p>')
-    res.end()
-  } else {
-    sess.views = 1
-    sess.account_name = "hello world"
-    res.render('sign-in', {account_name: "cams account"})
-  }
-})
+// server.use((req, res, next) => {
+//   let sess = req.session
+//   console.log(sess);
+//   if (sess.views) {
+//     sess.views++
+//     res.setHeader('Content-Type', 'text/html')
+//     res.write('<p>views: ' + sess.views + '</p>')
+//     res.write('<p>expires in: ' + (sess.cookie.maxAge / 1000) + 's</p>')
+//     res.end()
+//   } else {
+//     sess.views = 1
+//     res.end()
+//   }
+// })
 
 server.use('/', routes);
-// server.use('/users', users);
+server.use('/', users);
 
 // catch 404 and forward to error handler
 server.use((req, res, next) => {
