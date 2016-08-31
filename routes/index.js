@@ -1,6 +1,6 @@
-var express = require('express');
-var router = express.Router();
-var {getTransactions, getAccount, signIn}  = require('../config/database/db');
+let express = require('express');
+let router = express.Router();
+let {getTransactions, getAccount, signIn}  = require('../config/database/db');
 
 /* GET home page. */
 router.get('/', (req, res, next) => {
@@ -9,7 +9,7 @@ router.get('/', (req, res, next) => {
 });
 
 router.get('/api/v1/accounts/:id', (req, res) => {
-  var id = req.params.id
+  let id = req.params.id
   getAccount(id)
     .then( data => {
       console.log(data);
@@ -18,7 +18,7 @@ router.get('/api/v1/accounts/:id', (req, res) => {
     .catch( err => res.status(500).send(err) )
 })
 router.get('/api/v1/accounts/:id/transactions', (req, res) => {
-  var id = req.params.id
+  let id = req.params.id
   getTransactions(id)
     .then( data => {
       console.log(data);
@@ -27,9 +27,7 @@ router.get('/api/v1/accounts/:id/transactions', (req, res) => {
     .catch( err => res.status(500).send(err) )
 })
 
-router.get('/sign-in', (req, res) => {
 
-  res.render('sign-in', {account_name: "cams account"})
-})
+
 
 module.exports = router;
