@@ -14,6 +14,10 @@ var server = express();
 
 
 //view engine setup
+server.engine('hbs', hbs.express4({
+  partialsDir: __dirname + '/views/partials',
+  defaultLayout: __dirname + '/views/layout'
+}))
 server.set('views', path.join(__dirname, 'views'));
 server.set('view engine', 'hbs');
 

@@ -11,7 +11,7 @@ router.use(session({
 }))
 
 router.get('/sign-in', (req, res) => {
-  res.render('sign-in')
+  res.send('sign-in')
 })
 
 // router.post('/')
