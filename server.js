@@ -40,10 +40,24 @@ server.use(session({
   resave: false,
   saveUninitialized: true,
   cookie: {
-    maxAge: 6000
+    maxAge: 600000
   }
   // db: knex
 }))
+
+// server.use((req, res, next) => {
+//   let sess = req.session
+//   if (sess.views) {
+//     sess.views++
+//     res.setHeader('Content-Type', 'text/html')
+//     res.write('<p>views: ' + sess.views + '</p>')
+//     res.write('<p>expires in: ' + (sess.cookie.maxAge / 1000) + 's</p>')
+//     res.end()
+//   } else {
+//     sess.views = 1
+//     res.end('welcome to the session demo. refresh!')
+//   }
+// })
 
 server.use('/', routes);
 // server.use('/users', users);
