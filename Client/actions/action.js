@@ -13,7 +13,7 @@ const receiveAccountTransaction = function (data = initialState) {
 function fetchAccountTransaction () {
  return ({dispatch}) => {
    request
-     .get('/api/v1/accounts/:id/transactions')
+     .get('/api/v1/accounts/1/transactions')
      .end((err, res) => {
        if (err) {
          console.error(err.message)
