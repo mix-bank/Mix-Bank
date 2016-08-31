@@ -13,7 +13,6 @@ const receiveAccountTransaction = function (data) {
 }
 
 function fetchAccountTransaction () {
-  // console.log('hey');
  return (dispatch) => {
    request
    .get('/api/v1/accounts/3/transactions')

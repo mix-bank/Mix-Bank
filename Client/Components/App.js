@@ -22,7 +22,6 @@ class App extends React.Component {
 
   componentDidMount(){
       this.props.fetchAccountTransaction()
-      // console.log('inisde the componentWillMount ', this.props);
   }
 
   render() {
