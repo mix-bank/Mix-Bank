@@ -1,20 +1,20 @@
 process.env.NODE_ENV = process.env.NODE_ENV || 'development'
 
-var express = require('express');
-var path = require('path');
-var favicon = require('serve-favicon');
-var logger = require('morgan');
-var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
-var compression = require('compression');
-// var hbs = require('express-hbs');
-var session = require('express-session');
+let express = require('express');
+let path = require('path');
+let favicon = require('serve-favicon');
+let logger = require('morgan');
+let cookieParser = require('cookie-parser');
+let bodyParser = require('body-parser');
+let compression = require('compression');
+// let hbs = require('express-hbs');
+let session = require('express-session');
 
 
-var routes = require('./routes/index');
-var users = require('./routes/users');
+let routes = require('./routes/index');
+let users = require('./routes/users');
 
-var server = express();
+let server = express();
 
 
 //view engine setup
@@ -65,7 +65,7 @@ server.use('/', users);
 
 // catch 404 and forward to error handler
 server.use((req, res, next) => {
-  var err = new Error('Not Found');
+  let err = new Error('Not Found');
   err.status = 404;
   next(err);
 });
