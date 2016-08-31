@@ -4,8 +4,6 @@ import React from 'react'
 
 
 const receiveAccountTransaction = function (data) {
-
-  console.log('inside receiveAccountTransaction ', data);
  return {
    type: 'GET_ACCOUNT_TRANSACTIONS',
    payload: data
