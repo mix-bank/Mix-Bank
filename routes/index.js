@@ -4,7 +4,7 @@ let {getTransactions, getAccount, signIn}  = require('../config/database/db');
 
 /* GET home page. */
 router.get('/', (req, res, next) => {
-  res.send('index.html');
+  res.redirect('/users/sign-in');
 });
 
 router.get('/api/v1/accounts/:id', (req, res) => {

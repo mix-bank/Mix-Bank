@@ -3,8 +3,10 @@ let router = express.Router();
 let {getTransactions, getAccount, signIn}  = require('../config/database/db');
 
 router.get('/sign-in', (req, res) => {
-  // console.log(res.session);
   res.render('sign-in')
+})
+router.get('/', (req, res) => {
+  res.redirect('/users/sign-in')
 })
 
 router.post('/sign-in', (req, res) => {
@@ -15,7 +17,7 @@ router.post('/sign-in', (req, res) => {
       console.log("this is also log in data: ", ...logInData)
       console.log("this is the log in password: ", req.body.password)
       if (password === req.body.password) {
-        res.redirect('/api/v1/accounts/')
+        res.redirect('/index/api/v1/accounts/2')
       } else {
         res.send('You are a terrible hacker >:(')
       }
