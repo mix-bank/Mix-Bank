@@ -6,7 +6,6 @@ const getTransactions = (id) => {
     .where('from_account_id', id)
     .orWhere('to_account_id', id)
     .then( data => {
-      console.log('here is the data', data)
       return data
     })
 }
@@ -15,16 +14,14 @@ const getAccount = (id) => {
   return knex('accounts')
     .where('id', id)
     .then( data => {
-      console.log('here is the data', data)
       return data
     })
 }
 
-let signIn = (account_name, account_email, account_password) => {
+let findUserByAccountName = (account_name) => {
   return knex('accounts')
     .where('account_name', account_name)
     .then( logInData => {
-      console.log("here is the sign in info: ", ...logInData)
       return logInData
     })
 }
@@ -32,5 +29,5 @@ let signIn = (account_name, account_email, account_password) => {
 module.exports = {
   getTransactions,
   getAccount,
-  signIn
+  findUserByAccountName
 }

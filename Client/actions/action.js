@@ -13,13 +13,12 @@ const receiveAccountTransaction = function (data) {
 function fetchAccountTransaction () {
  return (dispatch) => {
    request
-   .get('/index/api/v1/accounts/2/transactions')
+   .get('/api/v1/accounts/2/transactions')
      .end((err, res) => {
        if (err) {
          console.error(err.message)
          return
        }
-       console.log(res);
        dispatch(receiveAccountTransaction(JSON.parse(res.text)))
      })
  }

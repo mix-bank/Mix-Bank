@@ -7,11 +7,12 @@ const Account = ({data}) => {
     return(
       data.map((data, i) => {
         return (
-          <div key={i}>
-            <li>{data.id}</li>
-            <li>{data.amount}</li>
-            <li>{data.description}</li>
-          </div>
+          <tr key={i}>
+            <td>{data.amount}</td>
+            <td>{data.description}</td>
+            <td>{data.from_account_id}</td>
+            <td>{data.to_account_id}</td>
+          </tr>
         )
       })
     )
@@ -19,7 +20,17 @@ const Account = ({data}) => {
 
   return (
     <div>
-      <ul>{displayData()}</ul>
+      <table className="table table-striped">
+        <thead>
+          <tr>
+            <th>Amount</th>
+            <th>Description</th>
+            <th>From</th>
+            <th>To</th>
+          </tr>
+        </thead>
+          <tbody>{displayData()}</tbody>
+      </table>
     </div>
   )
 }
