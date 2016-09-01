@@ -4,6 +4,10 @@ function accountData (state = [], action) {
 
       return [...action.payload]
 
+    case 'SIGN_OUT':
+
+      return [...action.payload]
+
     default:
       return state
   }

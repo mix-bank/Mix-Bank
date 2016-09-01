@@ -23,6 +23,7 @@ class App extends React.Component {
 handleClick(event) {
   const { signOutButton } = this.props
   signOutButton()
+  console.log(this.props);
 }
   render() {
     const { data } = this.props
