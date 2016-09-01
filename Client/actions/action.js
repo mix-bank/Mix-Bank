@@ -3,7 +3,7 @@ import initialState from '../initialstate.js'
 import React from 'react'
 
 
-const receiveAccountTransaction = function (data) {
+function receiveAccountTransaction (data) {
  return {
    type: 'GET_ACCOUNT_TRANSACTIONS',
    payload: data
@@ -25,8 +25,7 @@ function fetchAccountTransaction () {
 }
 
 function signOutButton () {
-  console.log("calling the function ", signOutButton);
-  return (dispatch) => {
+  return (
     request
     .get('/users/sign-out')
     .end((err, res) => {
@@ -34,9 +33,9 @@ function signOutButton () {
         console.error(err.message)
         return
       }
-      dispatch()
+      window.location.href = '/users'
     })
-  }
+  )
 }
  module.exports={
    receiveAccountTransaction,
