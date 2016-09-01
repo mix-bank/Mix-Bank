@@ -5,9 +5,9 @@ const Account = ({data}) => {
   const displayData = () => {
 
     return(
-      data.map((data) => {
+      data.map((data, i) => {
         return (
-          <div>
+          <div key={i}>
             <li>{data.id}</li>
             <li>{data.amount}</li>
             <li>{data.description}</li>
