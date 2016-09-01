@@ -14,7 +14,7 @@ function fetchAccountTransaction () {
  return (dispatch) => {
    request
    .get('/api/v1/accounts/2/transactions')
-     .end((err, res) => {
+   .end((err, res) => {
        if (err) {
          console.error(err.message)
          return
@@ -24,7 +24,22 @@ function fetchAccountTransaction () {
  }
 }
 
+function signOutButton () {
+  console.log("calling the function ", signOutButton);
+  return (dispatch) => {
+    request
+    .get('/users/sign-out')
+    .end((err, res) => {
+      if (err) {
+        console.error(err.message)
+        return
+      }
+      dispatch()
+    })
+  }
+}
  module.exports={
    receiveAccountTransaction,
-   fetchAccountTransaction
+   fetchAccountTransaction,
+   signOutButton
  }
