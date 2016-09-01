@@ -1,5 +1,6 @@
 import React from 'react'
 import Transaction from './Transaction'
+import cookie from 'react-cookie';
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { receiveAccountTransaction, fetchAccountTransaction, signOutButton } from '../actions/action'
@@ -15,9 +16,15 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 class App extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state =  { userId: cookie.load('userId') };
+  }
 
   componentDidMount(){
     const { fetchAccountTransaction } = this.props
+    console.log(this.state);
     fetchAccountTransaction()
   }
 handleClick(event) {
