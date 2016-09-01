@@ -13,7 +13,7 @@
     "postinstall": "npm run bundle",
     "test": "node ./test/*.js | tap-spec",
     "bundle": "NODE_ENV=production browserify Client/index.js -o public/bundle.js -t babelify -d -g uglifyify",
-    "dev:watch": "watchify Client/index.js -o public/bundle.js -t babelify -d -g uglifyify"
+    "dev:watch": "watchify Client/index.js -o public/bundle.js -t babelify -d"
   },
   "author": "",
   "license": "MIT",
