@@ -1,6 +1,9 @@
-let express = require('express');
-let router = express.Router();
-let {getTransactions, getAccount, findUserByAccountName}  = require('../config/database/db');
+const express = require('express');
+const router = express.Router();
+const {getTransactions, getAccount, findUserByAccountName}  = require('../config/database/db');
+const {comparePass} = require('../bcrypt_test.js')
+
+console.log('inside users.js ', comparePass);
 
 router.get('/sign-in', (req, res) => {
   res.render('sign-in')

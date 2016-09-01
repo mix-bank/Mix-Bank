@@ -1,5 +1,13 @@
-let config      = require('../../knexfile').development;
-let knex        = require('knex')(config);
+const config      = require('../../knexfile').development;
+const knex        = require('knex')(config);
+
+const getPasswordHash = (hash) => {
+  return knex('accounts')
+    .where('account_password', hash)
+    .then (data => {
+      return data
+    })
+}
 
 const getTransactions = (id) => {
   return knex('transactions')
@@ -18,7 +26,7 @@ const getAccount = (id) => {
     })
 }
 
-let findUserByAccountName = (account_name) => {
+const findUserByAccountName = (account_name) => {
   return knex('accounts')
     .where('account_name', account_name)
     .then( logInData => {
