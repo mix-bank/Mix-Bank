@@ -33,11 +33,5 @@ router.get('/api/v1/accounts/:id/transactions', (req, res) => {
     .catch( err => res.status(500).send(err) )
 })
 
-// router.get('/home/account/:id', (req, res) => {
-//   res.render('home.html')
-// })
-
-
-
 
 module.exports = router;
