@@ -17,10 +17,10 @@ function signOut () {
  }
 }
 
-function fetchAccountTransaction () {
+function fetchAccountTransaction (id) {
  return (dispatch) => {
    request
-   .get('/api/v1/accounts/2/transactions')
+   .get(`/api/v1/accounts/${id}/transactions`)
    .end((err, res) => {
        if (err) {
          console.error(err.message)

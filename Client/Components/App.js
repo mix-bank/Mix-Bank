@@ -18,12 +18,12 @@ class App extends React.Component {
 
   componentDidMount(){
     const { fetchAccountTransaction } = this.props
-    fetchAccountTransaction()
+    const id = window.location.pathname.split('/');
+    fetchAccountTransaction(id[id.length - 1])
   }
 handleClick(event) {
   const { signOutButton } = this.props
   signOutButton()
-  console.log(this.props);
 }
   render() {
     const { data } = this.props
