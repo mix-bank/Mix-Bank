@@ -16,7 +16,6 @@ let users = require('./routes/users');
 
 let server = express();
 
-
 //view engine setup
 // server.engine('hbs', hbs.express4({
 //   // partialsDir: __dirname + '/views/partials',
@@ -60,7 +59,7 @@ server.use(session({
 //   }
 // })
 
-server.use('/index', index);
+server.use('/', index);
 server.use('/users', users);
 
 // catch 404 and forward to error handler
