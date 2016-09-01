@@ -19,7 +19,6 @@ const Account = ({data}) => {
   }
 
   return (
-    <div>
       <table className="table table-striped">
         <thead>
           <tr>
@@ -31,7 +30,6 @@ const Account = ({data}) => {
         </thead>
           <tbody>{displayData()}</tbody>
       </table>
-    </div>
   )
 }
 
