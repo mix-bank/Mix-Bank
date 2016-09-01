@@ -18,7 +18,7 @@ router.post('/sign-in', (req, res) => {
         let id = req.session.accountData.id
         res.redirect(`/users/${id}`)
       } else {
-        res.send('You are a terrible hacker')
+        res.redirect('/users/sign-in')
       }
     })
 })
