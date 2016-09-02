@@ -11,7 +11,7 @@ router.get('/', (req, res) => {
 })
 
 router.post('/sign-in', (req, res) => {
-  
+
   const hash = hashPass('password')
   console.log(hashPass('password'), "hashPass");
   console.log(compareHash('password', hash));
