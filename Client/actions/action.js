@@ -10,10 +10,17 @@ function receiveAccountTransaction (data) {
  }
 }
 
-function fetchAccountTransaction () {
+function signOut () {
+ return {
+   type: 'SIGN_OUT',
+   payload: window.location.href = '/users'
+ }
+}
+
+function fetchAccountTransaction (id) {
  return (dispatch) => {
    request
-   .get('/api/v1/accounts/2/transactions')
+   .get(`/api/v1/accounts/${id}/transactions`)
    .end((err, res) => {
        if (err) {
          console.error(err.message)
@@ -25,7 +32,7 @@ function fetchAccountTransaction () {
 }
 
 function signOutButton () {
-  return (
+  return (dispatch) => {
     request
     .get('/users/sign-out')
     .end((err, res) => {
@@ -33,9 +40,9 @@ function signOutButton () {
         console.error(err.message)
         return
       }
-      window.location.href = '/users'
+      dispatch(signOut())
     })
-  )
+  }
 }
  module.exports={
    receiveAccountTransaction,
