@@ -2,8 +2,46 @@ body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   text-align: center;
+  background-color: #617A57;
 }
 
 a {
   color: #00B7FF;
+}
+
+.sign-in-box {
+  height: 80vh;
+  width: 80vw;
+  background-color: #38322C;
+  margin: auto;
+  border-radius: 5px;
+}
+
+.text-color {
+  color: #FBE7D7;
+}
+
+.sign-in-fieldset {
+  margin: 60px;
+}
+
+.sign-in-header {
+  font-size: 2.5em;
+  padding-top: 7vh;
+  padding-bottom: 10px;
+  color: #FBE7D7;
+}
+
+.btn-primary {
+  background-color: #B61E1E;
+  border: none;
+}
+
+.table {
+  overflow-y: hidden;
+}
+
+.sign-out-button {
+  position: relative;
+  top: -40px;
 }
