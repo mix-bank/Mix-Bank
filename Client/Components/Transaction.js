@@ -9,8 +9,6 @@ const Account = ({data}) => {
 
     return(
       data.map((data, i) => {
-        // console.log(data.amount)
-        console.log(amount)
         amount += data.amount/100
         return (
           <tr key={i}>
@@ -26,7 +24,10 @@ const Account = ({data}) => {
   }
 
   return (
-    <div>
+    <div className="sign-in-box text-color">
+      <fieldset className="sign-in-fieldset">
+      <legend className="sign-in-header">Welcome to the Bank of Mix</legend>
+      <br /><br /><br />
       <table className="table table-striped">
         <thead>
           <tr>
@@ -40,7 +41,7 @@ const Account = ({data}) => {
           <tbody>{displayData()}</tbody>
       </table>
       <Balance totalMoney={amount} />
-      {console.log("this is data.amount: ", amount)}
+      </fieldset>
     </div>
   )
 }

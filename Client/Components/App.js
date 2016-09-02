@@ -30,7 +30,7 @@ handleClick(event) {
     return (
       <div>
         <Transaction data={data}/>
-        <button onClick={this.handleClick.bind(this)}>Sign Out</button>
+        <button className="btn btn-primary sign-out-button" onClick={this.handleClick.bind(this)}>Sign Out</button>
       </div>
     )
   }
