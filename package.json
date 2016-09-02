@@ -13,15 +13,11 @@
     "postinstall": "npm run bundle",
     "test": "node ./test/*.js | tap-spec",
     "bundle": "NODE_ENV=production browserify Client/index.js -o public/bundle.js -t babelify -d -g uglifyify",
-    "dev:watch": "watchify Client/index.js -o public/bundle.js -t babelify -d"
+    "dev:watch": "watchify Client/index.js -o public/bundle.js -t babelify -dv"
   },
   "author": "",
   "license": "MIT",
   "devDependencies": {
-    "enzyme": "^2.1.0",
-    "garnish": "^5.0.2",
-    "html-webpack-plugin": "^2.22.0",
-    "jsdom": "^8.1.0",
     "nodemon": "^1.10.2",
     "react-transform-catch-errors": "^1.0.2",
     "react-transform-hmr": "^1.0.4",
@@ -31,8 +27,6 @@
     "tape": "^4.6.0",
     "uglifyify": "^3.0.2",
     "watchify": "^3.7.0",
-    "webpack": "^1.13.2",
-    "webpack-dev-server": "^1.15.0",
     "wtch": "^4.0.1"
   },
   "dependencies": {
@@ -55,15 +49,10 @@
     "debug": "~2.2.0",
     "domready": "^1.0.8",
     "express": "~4.13.4",
-    "express-hbs": "^1.0.2",
     "express-session": "^1.14.1",
     "hbs": "~4.0.0",
     "knex": "^0.11.10",
-    "lodash.map": "^4.6.0",
     "morgan": "~1.7.0",
-    "node-dev": "^3.1.0",
-    "npm-run-all": "^1.5.3",
-    "raven-js": "^3.5.1",
     "react": "^15.3.1",
     "react-addons-test-utils": "^0.14.7",
     "react-dom": "^15.3.1",
