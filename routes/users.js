@@ -1,6 +1,7 @@
-let express = require('express');
-let router = express.Router();
-let {getTransactions, getAccount, findUserByAccountName}  = require('../config/database/db');
+const express = require('express');
+const router = express.Router();
+const { getTransactions, getAccount, findUserByAccountName }  = require('../config/database/db');
+const { hashPass, compareHash } = require('../bcrypt_test.js')
 
 router.get('/sign-in', (req, res) => {
   res.render('sign-in')
@@ -10,6 +11,11 @@ router.get('/', (req, res) => {
 })
 
 router.post('/sign-in', (req, res) => {
+
+  const hash = hashPass('password')
+  console.log(hashPass('password'), "hashPass");
+  console.log(compareHash('password', hash));
+
   let {account_name, account_password} = req.body
   findUserByAccountName(account_name)
     .then((logInData) => {
@@ -18,7 +24,7 @@ router.post('/sign-in', (req, res) => {
         let id = req.session.accountData.id
         res.redirect(`/users/${id}`)
       } else {
-        res.send('You are a terrible hacker')
+        res.redirect('/users/sign-in')
       }
     })
 })
