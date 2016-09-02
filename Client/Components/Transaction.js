@@ -3,18 +3,22 @@ import Balance from './Balance'
 
 const Account = ({data}) => {
 
+  let amount = 0
+
   const displayData = () => {
 
     return(
       data.map((data, i) => {
-        console.log(data);
+        // console.log(data.amount)
+        console.log(amount)
+        amount += data.amount/100
         return (
           <tr key={i}>
             <td>{i+1}</td>
             <td>{data.description}</td>
             <td>{data.from_account_id}</td>
             <td>{data.to_account_id}</td>
-            <td>{data.amount}</td>
+            <td>${data.amount/100}</td>
           </tr>
         )
       })
@@ -35,7 +39,8 @@ const Account = ({data}) => {
         </thead>
           <tbody>{displayData()}</tbody>
       </table>
-      <Balance totalMoney={data.amount} />
+      <Balance totalMoney={amount} />
+      {console.log("this is data.amount: ", amount)}
     </div>
   )
 }

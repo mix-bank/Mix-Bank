@@ -10,11 +10,11 @@ router.get('/', (req, res) => {
 })
 
 router.post('/sign-in', (req, res) => {
-  let {account_name, account_email, account_password} = req.body
+  let {account_name, account_password} = req.body
   findUserByAccountName(account_name)
     .then((logInData) => {
       if (logInData[0].account_password === req.body.password) {
-        req.session.accountData = { id: logInData[0].id, userName: logInData[0].account_name, email: logInData[0].account_email }
+        req.session.accountData = { id: logInData[0].id, userName: logInData[0].account_name }
         let id = req.session.accountData.id
         res.redirect(`/users/${id}`)
       } else {

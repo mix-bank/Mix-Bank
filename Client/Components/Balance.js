@@ -2,20 +2,19 @@ import React from 'react'
 
 const Balance = ({totalMoney}) => {
 
-  const addBalance = () => {
-    if (totalMoney) {
-    console.log(totalMoney);
-    return(
-      totalMoney.reduce((current, previous) => {
-        return current + previous
-      })
-    )}
-  }
+  // const addBalance = () => {
+  //   console.log("elephants", totalMoney)
+  //   if (totalMoney) {
+  //   console.log("this is the total money: ", totalMoney)
+  //   return(
+  //       return current + previous)
+  //   )}
+  // }
 
   return (
     <div>
       <h3>Total Balance</h3>
-      <p>{addBalance()}</p>
+      <p>${totalMoney}</p>
     </div>
   )
 }
