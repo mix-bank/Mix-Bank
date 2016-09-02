@@ -11,15 +11,13 @@ router.get('/', (req, res) => {
 })
 
 router.post('/sign-in', (req, res) => {
-
-  const hash = hashPass('password')
-  console.log(hashPass('password'), "hashPass");
-  console.log(compareHash('password', hash));
-
   let {account_name, account_password} = req.body
   findUserByAccountName(account_name)
     .then((logInData) => {
-      if (logInData[0].account_password === req.body.password) {
+      const hash = logInData[0].account_password
+      const myPassword = req.body.password
+
+      if (compareHash(myPassword, hash)) {
         req.session.accountData = { id: logInData[0].id, userName: logInData[0].account_name }
         let id = req.session.accountData.id
         res.redirect(`/users/${id}`)

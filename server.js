@@ -7,7 +7,6 @@ let logger = require('morgan');
 let cookieParser = require('cookie-parser');
 let bodyParser = require('body-parser');
 let compression = require('compression');
-// let hbs = require('express-hbs');
 let session = require('express-session');
 
 
@@ -16,11 +15,6 @@ let users = require('./routes/users');
 
 let server = express();
 
-//view engine setup
-// server.engine('hbs', hbs.express4({
-//   // partialsDir: __dirname + '/views/partials',
-//   defaultLayout: __dirname + '/views/layout'
-// }))
 server.set('views', path.join(__dirname, 'views'));
 server.set('view engine', 'hbs');
 
